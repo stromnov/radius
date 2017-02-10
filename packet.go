@@ -93,7 +93,7 @@ func Parse(data, secret []byte, dictionary *Dictionary) (*Packet, error) {
 		}
 
 		attrLength := attributes[1]
-		if attrLength < 1 || attrLength > 253 || len(attributes) < int(attrLength) {
+		if attrLength < 2 || len(attributes) < int(attrLength) {
 			return nil, errors.New("radius: invalid attribute length")
 		}
 		attrType := attributes[0]
